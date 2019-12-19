@@ -32,7 +32,7 @@ id-map@1.1.0
 insecure@1.0.7
 inter-process-messaging@0.1.0
 jquery@1.11.9
-local-test:vlasky:mysql@1.2.8
+local-test:vlasky:mysql@1.2.9
 logging@1.1.20
 meteor@1.9.3
 minimongo@1.4.5
@@ -64,6 +64,6 @@ tinytest@1.1.0
 tracker@1.2.0
 underscore@1.0.10
 url@1.2.0
-vlasky:mysql@1.2.8
+vlasky:mysql@1.2.9
 webapp@1.7.3
 webapp-hashing@1.0.9
