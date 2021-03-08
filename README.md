@@ -49,7 +49,7 @@ If you set the `recreateDb` value to true, the test suite will automatically cre
 $ curl -L https://install.meteor.com/ | /bin/sh
 
 # Clone Repository
-$ git clone https://github.com/numtel/meteor-mysql.git
+$ git clone https://github.com/vlasky/meteor-mysql.git
 $ cd meteor-mysql
 
 # Configure database settings in your favorite editor
