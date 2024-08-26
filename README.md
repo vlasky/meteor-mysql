@@ -22,6 +22,8 @@ For operations other than `SELECT`, like `UPDATE` and `INSERT`, an active [`node
 In this Meteor package, the `LiveMysqlSelect` object returned by the `select()` method is modified to act as a cursor that can be published.
 
 ```javascript
+import { LiveMysql, LiveMysqlKeySelector } from 'meteor/vlasky:mysql';
+
 var liveDb = new LiveMysql(Meteor.settings.mysql);
 
 Meteor.publish('allPlayers', function(){
