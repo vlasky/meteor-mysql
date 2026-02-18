@@ -2,10 +2,9 @@
   "mysql": {
     "host"        : "localhost",
     "user"        : "root",
-    "password"    : "numtel",
+    "password"    : "meteor",
     "database"    : "test_package",
     "serverId"    : 129,
-    "minInterval" : 200
   },
   "recreateDb": false
 }

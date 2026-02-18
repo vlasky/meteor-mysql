@@ -1,12 +1,12 @@
-// numtel:mysql
-// MIT License, ben@latenightsketches.com
-// test/helper.randomString.js, test/performance/server/randomString.js
+// vlasky:mysql
+// MIT License
+// test/helpers/randomString.js
 
-randomString = function(length){
-  var text = "",
-      possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789";
-  for(var i=0; i < length; i++){
+randomString = (length) => {
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+  let text = '';
+  for (let i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
-  };
+  }
   return text;
 };

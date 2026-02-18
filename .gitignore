@@ -4,3 +4,13 @@
 .build*
 .npm
 settings.json
+
+#AI tools
+.claude/
+.codex/
+.gemini/
+.mcp/
+.mcp.json
+
+# Local override files
+*.local.md

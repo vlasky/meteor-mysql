@@ -15,7 +15,7 @@ For more information, see the original [`numtel:mysql` package](https://github.c
 
 This package provides the `LiveMysql` class as defined in the [`mysql-live-select` NPM package](https://github.com/vlasky/mysql-live-select). Be sure to follow the installation instructions for configuring your MySQL server to output the binary log.
 
-For operations other than `SELECT`, like `UPDATE` and `INSERT`, an active [`node-mysql`](https://github.com/felixge/node-mysql) connection (or pool) is exposed via the `LiveMysql.db` (or `LiveMysql.pool`) property.
+The `LiveMysql.select()` method is used exclusively for creating reactive queries. For conventional MySQL operations, a [`mysql2`](https://github.com/sidorares/node-mysql2) promise-based connection pool is exposed via the `LiveMysql.poolPromise` property (preferred for use with async/await). A callback-based connection pool is also available via `LiveMysql.pool`, or a single connection via `LiveMysql.db`.
 
 ### `LiveMysql.prototype.select()`
 
@@ -26,7 +26,7 @@ import { LiveMysql, LiveMysqlKeySelector } from 'meteor/vlasky:mysql';
 
 var liveDb = new LiveMysql(Meteor.settings.mysql);
 
-Meteor.publish('allPlayers', function(){
+Meteor.publish('allPlayers', async function() {
   return liveDb.select(
     `SELECT * FROM players ORDER BY score DESC`,
     null,

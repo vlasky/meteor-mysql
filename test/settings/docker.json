@@ -1,0 +1,12 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "user": "root",
+    "password": "meteor",
+    "database": "test_package",
+    "serverId": 129,
+    "pool": true,
+    "connectionLimit": 2
+  },
+  "recreateDb": false
+}

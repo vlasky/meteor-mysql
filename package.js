@@ -1,60 +1,41 @@
 Package.describe({
   name: 'vlasky:mysql',
   summary: 'MySQL support with Reactive Select Subscriptions',
-  version: '1.3.0',
-  git: 'https://github.com/vlasky/meteor-mysql.git'
+  version: '1.4.0',
+  git: 'https://github.com/vlasky/meteor-mysql.git',
+  types: 'index.d.ts'
 });
 
 Npm.depends({
-  'lodash': '4.17.21',
-  '@vlasky/mysql-live-select': '1.2.27'
+  '@vlasky/mysql-live-select': '1.3.0'
 });
 
 Package.onUse(function(api) {
-api.versionsFrom(['1.3', '1.4', '3.0']);
+  api.versionsFrom('3.0');
   api.use([
     'ecmascript',
-    'ddp',
-    'tracker'
+    'ddp'
   ]);
 
   api.mainModule('lib/LiveMysql.js', 'server');
+
+  api.addAssets('index.d.ts', ['client', 'server']);
+
 });
 
 Package.onTest(function(api) {
   api.use([
     'tinytest',
     'ecmascript',
-    'templating',
-    'underscore',
-    'autopublish',
-    'insecure',
-    'http',
-    'simple:rest@0.2.3',
+    'mongo',
+    'tracker',
     'vlasky:mysql',
   ]);
-  api.use('test-helpers'); // Did not work concatenated above
-  api.addFiles([
-    'test/helpers/expectResult.js',
-    'test/helpers/randomString.js'
-  ]);
+  api.use('test-helpers');
 
-  api.addFiles([
-    'test/fixtures/tpl.html',
-    'test/fixtures/tpl.js'
-  ], 'client');
+  api.addFiles('test/helpers/randomString.js', 'client');
 
-  api.addFiles([
-    'test/helpers/queryEx.js',
-    'test/helpers/querySequence.js',
-  ], 'server');
+  api.addFiles('test/index.js', 'server');
 
-  api.addAssets([
-    'test/index.es6'
-  ], 'server');
-
-  api.addFiles([
-    'test/MysqlSubscription.js',
-//     'test/simple_rest.js'
-  ]);
+  api.addFiles('test/MysqlSubscription.js');
 });
